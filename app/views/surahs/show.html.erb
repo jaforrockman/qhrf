@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Surah number:</strong>
+  <%= @surah.surah_number %>
+</p>
+
+<p>
+  <strong>Surah name:</strong>
+  <%= @surah.surah_name %>
+</p>
+
+<%= link_to 'Edit', edit_surah_path(@surah) %> |
+<%= link_to 'Back', surahs_path %>

@@ -1,0 +1,38 @@
+<%= form_for(ayat) do |f| %>
+  <% if ayat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ayat.errors.count, "error") %> prohibited this ayat from being saved:</h2>
+
+      <ul>
+      <% ayat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :book_id %>
+    <%= f.text_field :book_id %>
+    <%= f.select :book_id, Book.all.name, class: 'dropdown' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :surah_id %>
+    <%= f.text_field :surah_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ayat_number %>
+    <%= f.number_field :ayat_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ayat_text %>
+    <%= f.text_area :ayat_text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

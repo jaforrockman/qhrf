@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Surahs</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Book Name</th>
+      <th>Surah number</th>
+      <th>Surah name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @surahs.each do |surah| %>
+      <tr>
+         <td><%= Book.find(surah.book_id).name %></td>
+        <td><%= surah.surah_number %></td>
+        <td><%= surah.surah_name %></td>
+        <td><%= link_to 'Show', surah %></td>
+        <td><%= link_to 'Edit', edit_surah_path(surah) %></td>
+        <td><%= link_to 'Destroy', surah, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Surah', new_surah_path %>

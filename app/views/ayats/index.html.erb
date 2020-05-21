@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ayats</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Book</th>
+      <th>Surah</th>
+      <th>Ayat number</th>
+      <th>Ayat Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ayats.each do |ayat| %>
+      <tr>
+        <td><%= ayat.book_id %></td>
+        <td><%= ayat.surah_id %></td>
+        <td><%= ayat.ayat_number %></td>
+        <td><%= ayat.ayat_text %></td>
+        <td><%= link_to 'Show', ayat %></td>
+        <td><%= link_to 'Edit', edit_ayat_path(ayat) %></td>
+        <td><%= link_to 'Destroy', ayat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ayat', new_ayat_path %>

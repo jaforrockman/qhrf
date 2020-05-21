@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  surah_number: 1
+  surah_name: MyString
+
+two:
+  surah_number: 1
+  surah_name: MyString

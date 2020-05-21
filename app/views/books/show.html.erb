@@ -1,9 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @book.name %>
+ 
+ <h1 align="center"><u><%= @book.name %></u></h1>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+ 
+<div class="row">
+  <div class="column left" style="background-color:#e5f3ff;">
+    <% if @book.name=="The Holy Al Quran"%>
+        
+    <h2><%= link_to "All Surah", @book_path %></h2>
+    <%else%>
+    <h2><%= link_to "Chapter", @book_path %></h2>
+    <%end%>
+    
+    <% @book.surahs.each do |surah| %>
+
+    	<p><%= link_to surah.surah_name, surah%></p>
+    <% end %>
+  </div>
+
+  <div class="column right" style="background-color:#e7e7e7;">
+    
+      <% @book.surahs.each do |surah| %>
+            <h2 align="center">Bismillahir Rahmanir Rahim</h2>
+            <h2 align="center"><%= link_to surah.surah_name, surah%></h2>
+            <%surah.ayats.each do|ayate| %>
+             <p>(<%= ayate.ayat_number%>)-- <%= ayate.ayat_text%></p>
+             <%end%>
+            
+      <% end %>
+       
+  </div>
+</div>
+
+

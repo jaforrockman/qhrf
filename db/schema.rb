@@ -10,12 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200521102701) do
+ActiveRecord::Schema.define(version: 20200521163754) do
+
+  create_table "ayats", force: :cascade do |t|
+    t.string   "book_id"
+    t.string   "surah_id"
+    t.integer  "ayat_number"
+    t.text     "ayat_text"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "surahs", force: :cascade do |t|
+    t.integer  "surah_number"
+    t.string   "surah_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "book_id"
   end
 
 end

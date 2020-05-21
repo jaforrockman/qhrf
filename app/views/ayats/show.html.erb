@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @ayat.book_id %>
+</p>
+
+<p>
+  <strong>Surah:</strong>
+  <%= @ayat.surah_id %>
+</p>
+
+<p>
+  <strong>Ayat number:</strong>
+  <%= @ayat.ayat_number %>
+</p>
+
+<p>
+  <strong>Ayat:</strong>
+  <%= @ayat.ayat_text %>
+</p>
+
+<%= link_to 'Edit', edit_ayat_path(@ayat) %> |
+<%= link_to 'Back', ayats_path %>
