@@ -1,29 +1,31 @@
+
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
- 
- <h1 align="center"><u><%= @book.name %></u></h1>
+  <h1 align="center"><u><%= @book.name %></u></h1>
 </p>
 
- 
-<div class="row">
-  <div class="column left" style="background-color:#e5f3ff;">
+
+<body>
+
+<div class="sidenav">
     <% if @book.name=="The Holy Al Quran"%>
-        
-    <h2><%= link_to "All Surah", @book_path %></h2>
-    <%else%>
-    <h2><%= link_to "Chapter", @book_path %></h2>
+        <h2 align="center"><%= link_to "All Surah", @book_path %></h2>
+        <%else%>
+        <h2 align="center"><%= link_to "Chapter", @book_path %></h2>
     <%end%>
     
     <% @book.surahs.each do |surah| %>
-
-    	<p><%= link_to surah.surah_name, surah%></p>
+    <a><%= link_to surah.surah_name, surah%></a>
     <% end %>
-  </div>
+</div>
 
-  <div class="column right" style="background-color:#e7e7e7;">
-    
-      <% @book.surahs.each do |surah| %>
+
+
+<div class="main">
+  <% @book.surahs.each do |surah| %>
             <h2 align="center">Bismillahir Rahmanir Rahim</h2>
             <h2 align="center"><%= link_to surah.surah_name, surah%></h2>
             <%surah.ayats.each do|ayate| %>
@@ -31,8 +33,20 @@
              <%end%>
             
       <% end %>
-       
-  </div>
+ 
 </div>
+   
+</body>
 
+
+
+  
+
+
+
+
+
+
+
+ 
 

@@ -13,8 +13,7 @@
 
   <div class="field">
     <%= f.label :book_id %>
-    <%= f.text_field :book_id %>
-    <%= f.select :book_id, Book.all.name, class: 'dropdown' %>
+    <%= collection_select(:ayat, :book_id, Book.all, :id, :name,{:selected =>" @books.first"},:prompt => true) %>
   </div>
 
   <div class="field">
