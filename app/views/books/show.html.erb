@@ -2,9 +2,9 @@
 
 
 <p id="notice"><%= notice %></p>
-
 <p>
   <h1 align="center"><u><%= @book.name %></u></h1>
+  
 </p>
 
 
@@ -18,7 +18,7 @@
     <%end%>
     
     <% @book.surahs.each do |surah| %>
-    <a><%= link_to surah.surah_name, surah%></a>
+    <%= link_to surah.surah_name, surah%>
     <% end %>
 </div>
 
@@ -40,7 +40,7 @@
 
 
 
-  
+
 
 
 

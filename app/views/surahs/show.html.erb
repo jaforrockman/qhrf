@@ -1,14 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Surah number:</strong>
-  <%= @surah.surah_number %>
-</p>
+
+
+
+
+
+<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Surah name:</strong>
-  <%= @surah.surah_name %>
+  
 </p>
 
-<%= link_to 'Edit', edit_surah_path(@surah) %> |
-<%= link_to 'Back', surahs_path %>
+
+<body>
+
+<div class="sidenav">
+    
+   
+	
+	<%@book=Book.find(@surah.book_id)%>
+    <% if @book.name=="The Holy Al Quran"%>
+          <h2 align="center"><%= link_to "All Surah", Book.find(@surah.book_id) %></h2>
+        <%else%>
+          <h2 align="center"><%= link_to "All Chapter", Book.find(@surah.book_id) %></h2>
+    <%end%>
+
+
+    
+    <% @book.surahs.each do |surah| %>
+    <%= link_to surah.surah_name, surah%>
+    <% end %>
+</div>
+
+
+        
+
+
+<div class="main">
+ 	  <h1 align="center"><u><%= @surah.surah_name %></u></h1>
+      <h2 align="center">Bismillahir Rahmanir Rahim</h2>
+      	<%@surah.ayats.each do|ayate| %>
+     	<p>(<%= ayate.ayat_number%>)-- <%= ayate.ayat_text%></p>
+      <%end%>
+
+</div align="right">
+   <%= link_to 'Edit', edit_surah_path(@surah) %> |
+	<%= link_to 'Back', surahs_path %>
+</body>
+
+

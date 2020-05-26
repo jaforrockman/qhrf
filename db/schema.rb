@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200521163754) do
+ActiveRecord::Schema.define(version: 20200523073720) do
 
   create_table "ayats", force: :cascade do |t|
     t.string   "book_id"
@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 20200521163754) do
 
   create_table "books", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "religion"
+    t.boolean  "editable",   default: false
   end
 
   create_table "surahs", force: :cascade do |t|

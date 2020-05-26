@@ -5,11 +5,17 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
+
   end
 
   # GET /books/1
   # GET /books/1.json
   def show
+  end
+
+  def bookbackend
+    @books=Book.all
+     @book = Book.find(params[:id])
   end
 
   # GET /books/new
@@ -19,6 +25,7 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+    
   end
 
   # POST /books
@@ -69,6 +76,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:name)
+      params.require(:book).permit(:name,:religion, :editable)
     end
 end

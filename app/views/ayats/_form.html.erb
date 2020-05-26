@@ -16,14 +16,17 @@
     <%= collection_select(:ayat, :book_id, Book.all, :id, :name,{:selected =>" @books.first"},:prompt => true) %>
   </div>
 
+
+
   <div class="field">
     <%= f.label :surah_id %>
-    <%= f.text_field :surah_id %>
+     <%= collection_select(:ayat, :surah_id, Surah.all, :id, :surah_name,{:selected =>" @surahs.first"},:prompt => true) %>
   </div>
 
   <div class="field">
     <%= f.label :ayat_number %>
     <%= f.number_field :ayat_number %>
+
   </div>
 
   <div class="field">

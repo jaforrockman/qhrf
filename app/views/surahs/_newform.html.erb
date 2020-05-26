@@ -1,0 +1,38 @@
+<%= form_for(surah) do |f| %>
+  <% if surah.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(surah.errors.count, "error") %> prohibited this surah from being saved:</h2>
+
+      <ul>
+      <% surah.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+rhis
+  <div class="field">
+    <%= f.label :book_id %>
+       
+     <%= collection_select(:surah, :book_id, Book.all, :id, :name,:prompt => true) %>
+  
+  </div>
+
+
+  <div class="field">
+    
+       <%= f.label :surah_number %>
+    <%= f.number_field :surah_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :surah_name %>
+    <%= f.text_field :surah_name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

@@ -5,6 +5,7 @@ class AyatsController < ApplicationController
   # GET /ayats.json
   def index
     @ayats = Ayat.all
+    
   end
 
   # GET /ayats/1
@@ -69,6 +70,8 @@ class AyatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ayat_params
+          
       params.require(:ayat).permit(:book_id, :surah_id, :ayat_number, :ayat_text)
+   
     end
 end
