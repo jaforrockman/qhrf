@@ -1,8 +1,9 @@
 
 
 
-<p id="notice"><%= notice %></p>
+
 <p>
+<p id="notice" align="center"><%= notice %></p>
   <h1 align="center"><u><%= @book.name %></u></h1>
   
 </p>
@@ -17,7 +18,7 @@
         <h2 align="center"><%= link_to "Chapter", @book_path %></h2>
     <%end%>
     
-    <% @book.surahs.each do |surah| %>
+    <% @book_surahs.each do |surah| %>
     <%= link_to surah.surah_name, surah%>
     <% end %>
 </div>
@@ -25,10 +26,10 @@
 
 
 <div class="main">
-  <% @book.surahs.each do |surah| %>
+  <% @book_surahs.each do |surah| %>
             <h2 align="center">Bismillahir Rahmanir Rahim</h2>
             <h2 align="center"><%= link_to surah.surah_name, surah%></h2>
-            <%surah.ayats.each do|ayate| %>
+            <%surah.ayats.order("ayat_number ASC").each do|ayate| %>
              <p>(<%= ayate.ayat_number%>)-- <%= ayate.ayat_text%></p>
              <%end%>
             
@@ -37,10 +38,6 @@
 </div>
    
 </body>
-
-
-
-
 
 
 

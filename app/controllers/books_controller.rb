@@ -11,6 +11,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @book_surahs=@book.surahs.order("surah_number ASC")
+    
   end
 
   def bookbackend

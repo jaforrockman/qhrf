@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require custom
+ *= require search_page
  *= require select2-bootstrap
  *= require bootstrap
   *= require_self

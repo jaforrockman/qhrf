@@ -4,7 +4,7 @@ class SurahsController < ApplicationController
   # GET /surahs
   # GET /surahs.json
   def index
-    @surahs = Surah.all
+    @surahs = Surah.all.order("surah_number ASC")
   end
 
   # GET /surahs/1

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search</title>
+</head>
+<body class="body_style">
+
+	<p align="center">  
+	<%= form_tag(search_path, method: "get") do %>
+	   	<%= text_field_tag :query, nil, placeholder: "Search .."%>
+	   	<button> <%= submit_tag "submit", style: "display: none;", class: "btn btn-primary" %> Search</button>
+ 	 <% end %>
+ 	 </p>
+ 	 
+	</br>
+
+	
+		<div align="center">
+				 
+				  <%@ayats.order("ayat_number ASC").each do |ayate|%>
+				  <div class="ayat"> <%= ayate.ayat_text%><span class="ayat_ref">--Ayat No:(<%= ayate.ayat_number%>)/<%=Surah.find(ayate.surah_id).surah_name%>/<%=Book.find(ayate.book_id).name %></span></div>
+				  <%end%>
+
+			
+	   </div>		
+</body>

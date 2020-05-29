@@ -4,7 +4,7 @@ class AyatsController < ApplicationController
   # GET /ayats
   # GET /ayats.json
   def index
-    @ayats = Ayat.all
+    @ayats = Ayat.all.order("ayat_number ASC")
     
   end
 

@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20200523073720) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ayats", force: :cascade do |t|
     t.string   "book_id"
     t.string   "surah_id"
