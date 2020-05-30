@@ -39,11 +39,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.7'
 #gem 'cancancan'
 #gem 'rails_admin', '~> 2.0'
-
+gem "paperclip", "~> 6.0.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+
+  
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end

@@ -8,7 +8,7 @@
 
    			 <% @books.each do |book| %>
 			    <div class="col-sm-4">
-			      <img  src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="book image">
+			      <img class="img-responsive" style="width:50%" > <%= image_tag(book.image.url) if book.image.exists? %></img>
 			      <p><%=link_to book.name, book%></p>
 			    </div>
 		     <% end %>

@@ -78,6 +78,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:name,:religion, :editable)
+      params.require(:book).permit(:name,:religion, :editable,:image)
     end
 end

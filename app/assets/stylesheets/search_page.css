@@ -1,5 +1,5 @@
 .ayat {
-  font-size: 18px;
+  font-size: 20px;
   text-align: left;
   
   border: 2px;
@@ -9,9 +9,11 @@
   
 }
 .ayat_ref {
-  font-size:8px;
+  font-size:10px;
   background-color: #f1f1f1;
   align-self: right;
+  border-style: solid;
+  border-color: red;
 }
 .body_style{
    margin-left: 20px; /* Same as the width of the sidenav */

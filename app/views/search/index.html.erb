@@ -20,7 +20,6 @@
 				  <%@ayats.order("ayat_number ASC").each do |ayate|%>
 				  <div class="ayat"> <%= ayate.ayat_text%><span class="ayat_ref">--Ayat No:(<%= ayate.ayat_number%>)/<%=Surah.find(ayate.surah_id).surah_name%>/<%=Book.find(ayate.book_id).name %></span></div>
 				  <%end%>
-
-			
+		
 	   </div>		
 </body>

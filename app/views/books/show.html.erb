@@ -4,6 +4,7 @@
 
 <p>
 <p id="notice" align="center"><%= notice %></p>
+ <p align="center"> <%= image_tag(@book.image.url) if @book.image.exists? %></p> 
   <h1 align="center"><u><%= @book.name %></u></h1>
   
 </p>
@@ -27,7 +28,9 @@
 
 <div class="main">
   <% @book_surahs.each do |surah| %>
+          <% if @book.name=="The Holy Al Quran"%>
             <h2 align="center">Bismillahir Rahmanir Rahim</h2>
+            <%end%>
             <h2 align="center"><%= link_to surah.surah_name, surah%></h2>
             <%surah.ayats.order("ayat_number ASC").each do|ayate| %>
              <p>(<%= ayate.ayat_number%>)-- <%= ayate.ayat_text%></p>

@@ -9,7 +9,9 @@
 		
 		<div align="center">
 		<% @books.each do |book| %>
+			<p><%=book.name%></p>
 			  <%book.surahs.order("surah_number ASC").each do |surah|%>
+			  
 				  <%surah.ayats.order("ayat_number ASC").each do |ayate|%>
 				  <div class="ayat"> <%= ayate.ayat_text%><span class="ayat_ref">--Ayat No:(<%= ayate.ayat_number%>)/<%=surah.surah_name%>/<%=book.name %></span></div>
 				  <%end%>
