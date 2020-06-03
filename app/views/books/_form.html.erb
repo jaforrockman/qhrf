@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :religion %>
-    <%= f.text_field :religion %>
+    <%= f.label :religion_id %>
+    <%= collection_select(:book, :religion_id, Religion.all, :id, :name, :prompt => "select Religion") %>
   </div>
 
    <div class="field">

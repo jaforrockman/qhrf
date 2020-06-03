@@ -3,23 +3,39 @@
 <head>
 	<title>Search</title>
 </head>
-<body class="body_style">
+<body style="background-color: #b5f7bf; " >
 
-	<p align="center">  
+<div class="sidenav2">
+   
+       <h2 align="center">Tag navigation</h2>
+     
+</div>
+
+<div class="main2">
+<div class="body-style">
+
+	<div align="center">  
 	<%= form_tag(search_path, method: "get") do %>
-	   	<%= text_field_tag :query, nil, placeholder: "Search .."%>
-	   	<button> <%= submit_tag "submit", style: "display: none;", class: "btn btn-primary" %> Search</button>
+	   	<div><%= text_field_tag :query, nil, placeholder: "Search for any topic" , class: "form-control2" %>
+	   	<button class="button button1"> <%= submit_tag "submit", style: "display: none;", class: "btn btn-primary" %> Search</button></div>
  	 <% end %>
- 	 </p>
+ 	 </div>
  	 
 	</br>
 
 	
-		<div align="center">
+	<div  align="center">
 				 
-				  <%@ayats.order("ayat_number ASC").each do |ayate|%>
-				  <div class="ayat"> <%= ayate.ayat_text%><span class="ayat_ref">--Ayat No:(<%= ayate.ayat_number%>)/<%=Surah.find(ayate.surah_id).surah_name%>/<%=Book.find(ayate.book_id).name %></span></div>
-				  <%end%>
+		<%@ayats.order("ayat_number ASC").each do |ayate|%>
+			<div class="content" > 
+				<div class="ayat"><span class="ayat_ref">Book:<%=Book.find(ayate.book_id).name %> Surah/Chapter:<%=Surah.find(ayate.surah_id).surah_name%>/Ayat No:(<%= ayate.ayat_number%>)</span><hr>
+				<%= ayate.ayat_text %></div>
+
+			</div>
+		</br>
+		<%end%>
 		
-	   </div>		
+	 </div>	
+</div>	
+</div>
 </body>

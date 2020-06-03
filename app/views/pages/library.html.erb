@@ -1,0 +1,22 @@
+<h1 align="center"><b><u>Quran & Hadith Research Foundation</u></b></h1>
+<h3 align="center"><u>List of all books</u></h3>
+
+
+      
+
+		<div class="row">
+
+   		   <% @books.each do |book| %>
+			 <div class="col-sm-4" style="text-align: center;">
+			   <div class="home-page-book">
+			     <img class="img-responsive2" align="center" > <%= image_tag(book.image.url , :height =>"170", :width => "100") if book.image.exists? %></img>
+			     <hr>
+			      <div><%=link_to book.name, book , class: "image-text"%></div>
+			    </div>
+			      </br></br>
+			  </div>
+		    <% end %>
+		</div>
+
+  
+

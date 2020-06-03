@@ -12,12 +12,11 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     @book_surahs=@book.surahs.order("surah_number ASC")
-    
+       
   end
 
-  def bookbackend
-    @books=Book.all
-     @book = Book.find(params[:id])
+  def read
+    
   end
 
   # GET /books/new
@@ -78,6 +77,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:name,:religion, :editable,:image)
+      params.require(:book).permit(:name,:religion_id, :editable,:image)
     end
 end

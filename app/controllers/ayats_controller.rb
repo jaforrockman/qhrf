@@ -16,6 +16,14 @@ class AyatsController < ApplicationController
   # GET /ayats/new
   def new
     @ayat = Ayat.new
+    def populate_surah_list
+      book_id = params[:book_id]
+      @surah = Surah.find_by book_id: book_id
+      respond_to do |format|
+        format.json { render json: @surah }
+      end
+    end
+
   end
 
   # GET /ayats/1/edit

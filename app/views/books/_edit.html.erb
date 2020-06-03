@@ -1,0 +1,88 @@
+
+
+
+<body class="body" style="background-color: #b5f7bf">
+
+<div class="sidenav">
+    <% if @book.name=="The Holy Al Quran"%>
+        <h2 align="center"><%= link_to "All Surah", @book_path %></h2>
+        <%else%>
+        <h2 align="center"><%= link_to "Chapter", @book_path %></h2>
+    <%end%>
+    
+    <% @book_surahs.each do |surah| %>
+    <%= link_to surah.surah_name, surah%>
+    <% end %>
+</div>
+
+
+
+<div class="main">
+<br>
+<br>
+
+<div class="wraper"></div>
+<div class="left">
+  
+  
+    <%= form_for Surah.new do |f| %>
+      <div class="field">
+      <%= f.label :book_id %>
+
+       <%=f.hidden_field :book_id, value: params[:id]%>
+        <%= Book.find(params[:id]).name  %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label :surah_number %>
+      <%= f.number_field :surah_number, value: Book.find(params[:id]).surahs.last.surah_number+1 %>
+    </div>
+
+    <div class="field">
+      <%= f.label :surah_name %>
+      <%= f.text_field :surah_name %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+    <%end%>
+  
+</div>
+
+
+
+
+
+
+<p>
+<p id="notice" style="text-align: center;" "><%= notice %></p>
+ <p style="text-align: center;"> <%= image_tag(@book.image.url) if @book.image.exists? %></p> 
+  <h1 align="center"><u><%= @book.name %></u></h1>
+  
+</p>
+
+
+  <% @book_surahs.each do |surah| %>
+          <% if @book.name=="The Holy Al Quran"%>
+            <h2 align="center">Bismillahir Rahmanir Rahim</h2>
+            <%end%>
+            <h2 align="center"><%= link_to surah.surah_name, surah%></h2>
+            <%surah.ayats.order("ayat_number ASC").each do|ayate| %>
+             <p>(<%= ayate.ayat_number%>)-- <%= ayate.ayat_text%></p>
+             <%end%>
+            
+      <% end %>
+ 
+</div>
+   
+</body>
+
+
+
+
+
+
+

@@ -4,8 +4,9 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url('https://fonts.maateen.me/solaiman-lipi/font.css');
 html {
-  font-family: sans-serif;
+  font-family: 'SolaimanLipi', sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -1583,6 +1584,7 @@ pre code {
   overflow-y: scroll;
 }
 .container {
+  font-family: 'SolaimanLipi', sans-serif;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;

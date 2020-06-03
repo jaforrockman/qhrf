@@ -1,0 +1,42 @@
+
+
+
+<body class="body" style="background-color: #b5f7bf">
+
+<div class="sidenav">
+    <% if @book.name=="The Holy Al Quran"%>
+        <h2 align="center"><%= link_to "All Surah", @book_path %></h2>
+        <%else%>
+        <h2 align="center"><%= link_to "Chapter", @book_path %></h2>
+    <%end%>
+    
+    <% @book_surahs.each do |surah| %>
+    <%= link_to surah.surah_name, surah%>
+    <% end %>
+</div>
+
+<div class="main">
+<br>
+<br>
+
+<p>
+<p id="notice" style="text-align: center;" "><%= notice %></p>
+ <p style="text-align: center;"> <%= image_tag(@book.image.url) if @book.image.exists? %></p> 
+  <h1 align="center"><u><%= @book.name %></u></h1>
+  
+</p>
+
+ <% @book_surahs.each do |surah| %>
+          <% if @book.name=="The Holy Al Quran"%>
+            <h2 align="center">Bismillahir Rahmanir Rahim</h2>
+            <%end%>
+            <h2 align="center"><%= link_to surah.surah_name, surah%></h2>
+            <%surah.ayats.order("ayat_number ASC").each do|ayate| %>
+             <p>(<%= ayate.ayat_number%>)-- <%= ayate.ayat_text%></p>
+             <%end%>
+            
+      <% end %>
+ 
+</div>
+   
+</body>

@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
 	has_many :surahs, dependent: :destroy
 	has_many :ayats, dependent: :destroy
+	belongs_to :religion
 	has_attached_file :image
 
 	validates_attachment :image,

@@ -16,7 +16,7 @@
     <% @books.each do |book| %>
       <tr>
         <td><%= book.name %></td>
-        <td><%= book.religion %></td>
+        <td><%= book.religion_id %></td>
        <% if book.editable == true %>
        <td>Its editable </td>  
        <%else%>

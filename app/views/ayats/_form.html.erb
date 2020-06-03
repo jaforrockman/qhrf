@@ -12,15 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :book_id %>
-    <%= collection_select(:ayat, :book_id, Book.all, :id, :name,{:selected =>" @books.first"},:prompt => true) %>
+    <%= f.label :book_id, id: "book" %>
+    <%= collection_select(:ayat, :book_id, Book.all, :id, :name) %>
   </div>
 
 
 
   <div class="field">
     <%= f.label :surah_id %>
-     <%= collection_select(:ayat, :surah_id, Surah.all, :id, :surah_name,{:selected =>" @surahs.first"},:prompt => true) %>
+     <%= collection_select(:ayat, :surah_id, Surah.all, :id, :surah_name) %>
+     
   </div>
 
   <div class="field">
@@ -38,3 +39,26 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  $("#book").on('change', function(){
+    $ajax({
+      url: "populate_surah_list",
+      type: "GET",
+      data: {book_id: $(this).val()},
+      // Callbacks that will be explained
+    })
+  });
+
+
+  // Ajax call
+success: function(data) {
+  $("#surah_id").children().remove();
+  // Create options and append to the list
+}
+// Rest of Ajax call
+</script>

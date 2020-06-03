@@ -9,7 +9,7 @@
 </p>
 
 
-<body>
+<body style="background-color: #b5f7bf">
 
 <div class="sidenav">
     
@@ -46,3 +46,40 @@
 </body>
 
 
+<div class="right">
+
+ <%= form_for Ayat.new do |f| %>
+      <div class="field">
+        <%= f.label :book_id %>
+
+        <%=f.hidden_field :book_id, value: Surah.find(params[:id]).book_id%>
+        <%= Surah.find(params[:id]).book.name  %>
+      </div>
+
+
+
+      <div class="field">
+        <%= f.label :surah_id %>
+        <%=f.hidden_field :surah_id, value: params[:id]%>
+        <%= Surah.find(params[:id]).surah_name  %>
+         
+      </div>
+
+      <div class="field">
+        <%= f.label :ayat_number %>
+      
+        <%= f.number_field :ayat_number, value: Surah.find(params[:id]).ayats.last.ayat_number+1 %>
+
+      </div>
+
+      <div class="field">
+        <%= f.label :ayat_text %>
+        <%= f.text_area :ayat_text %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+<% end %>
+
+</div>
