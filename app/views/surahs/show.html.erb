@@ -1,6 +1,5 @@
 
-
-
+ 
 
 <p align="center" id="notice"><%= notice %></p>
 
@@ -46,7 +45,7 @@
 </body>
 
 
-<div class="right">
+<div style="text-align: right;">
 
  <%= form_for Ayat.new do |f| %>
       <div class="field">
@@ -67,8 +66,12 @@
 
       <div class="field">
         <%= f.label :ayat_number %>
-      
+        <% if Surah.find(params[:id]).ayats.any?%>
         <%= f.number_field :ayat_number, value: Surah.find(params[:id]).ayats.last.ayat_number+1 %>
+        <%else%>
+
+        <%= f.number_field :ayat_number, value: 0+1 %>
+        <%end%>
 
       </div>
 
@@ -83,3 +86,4 @@
 <% end %>
 
 </div>
+

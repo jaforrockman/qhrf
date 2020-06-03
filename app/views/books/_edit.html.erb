@@ -17,6 +17,7 @@
 
 
 
+
 <div class="main">
 <br>
 <br>
@@ -36,7 +37,11 @@
 
     <div class="field">
       <%= f.label :surah_number %>
+        <% if Book.find(params[:id]).surahs.any?%>
       <%= f.number_field :surah_number, value: Book.find(params[:id]).surahs.last.surah_number+1 %>
+      <%else%>
+      <%= f.number_field :surah_number, value: 0+1 %>
+      <%end%>
     </div>
 
     <div class="field">
