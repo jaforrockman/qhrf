@@ -15,7 +15,7 @@ gem 'pg_search'
 
 #gem 'sqlite3', '~>1.3.13'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,7 +46,7 @@ gem "paperclip", "~> 6.0.0"
 
 group :development, :test do
 
-  
+  gem 'puma', '~> 3.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
