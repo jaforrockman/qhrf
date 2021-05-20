@@ -46,7 +46,7 @@ gem "paperclip", "~> 6.0.0"
 
 group :development, :test do
 
-  gem 'puma', '~> 3.0'
+  gem 'puma', '~> 4.3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
